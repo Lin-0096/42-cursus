@@ -44,3 +44,32 @@ int main(void)
 	ft_bzero(str,4);
 	printf("%s\n", str + 4);
 }
+#include <stdio.h>
+int	main(void)
+{
+	char dst[20];
+	char src[20] = "hello world";
+	ft_memcpy(dst, src, 5);
+	printf("%s\n", dst);
+}
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	char str[20] = "helloworld";
+	ft_memmove(str+2, str, 3);
+	printf("%s\n", str);
+	memmove(str+2, str, 3);
+	printf("%s\n", str);
+}
+
+#include <stdio.h>
+
+int	main(void)
+{
+	size_t size = 6;
+	char dst[size];
+	char src[] = "abcdefg";
+	printf("%zu\n", ft_strlcpy(dst, src, size));
+}
