@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 15:27:21 by linliu            #+#    #+#             */
-/*   Updated: 2025/04/16 10:54:11 by linliu           ###   ########.fr       */
+/*   Updated: 2025/04/16 15:56:10 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,7 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
+void	*ft_memmove(void *dst, const void *src, size_t len);
+
 #endif

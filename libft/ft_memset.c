@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 09:15:57 by linliu            #+#    #+#             */
-/*   Updated: 2025/04/16 09:42:53 by linliu           ###   ########.fr       */
+/*   Updated: 2025/04/16 14:05:49 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memset(void *b, int c, size_t len)
 		return (NULL);
 	while (i < len)
 	{
-		*(unsigned char *)(b + i) = (unsigned char)c;
+		((unsigned char *)b)[i] = (unsigned char)c;
 		i++;
 	}
 	return (b);
