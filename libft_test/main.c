@@ -26,3 +26,21 @@ int main(void)
 	const char *s = "hello";
 	printf("%ld\n", ft_strlen(s));
 }
+
+#include <stdio.h>
+#include <string.h>
+int main() 
+{
+   char str[20] = "hello world";
+   ft_memset(str, 'Z', 4);
+   printf("String after memset(): %s\n", str);
+   return 0;
+}
+
+#include <stdio.h>
+int main(void)
+{
+	char str[20] = "hello world";
+	ft_bzero(str,4);
+	printf("%s\n", str + 4);
+}
