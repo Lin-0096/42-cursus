@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 11:24:49 by linliu            #+#    #+#             */
-/*   Updated: 2025/04/16 17:57:10 by linliu           ###   ########.fr       */
+/*   Updated: 2025/04/18 14:35:38 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	{
 		while (len > 0)
 		{
-			*(char *)(dst + len) = *(const char *)(src + len);
+			*(char *)(dst + len -1) = *(const char *)(src + len - 1);
 			len--;
 		}
 	}

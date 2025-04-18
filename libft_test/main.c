@@ -65,11 +65,79 @@ int main(void)
 }
 
 #include <stdio.h>
-
 int	main(void)
 {
 	size_t size = 6;
 	char dst[size];
 	char src[] = "abcdefg";
-	printf("%zu\n", ft_strlcpy(dst, src, size));
+	size_t i = ft_strlcpy(dst, src, size);
+	printf("%s\n",dst);
+	printf("%zu\n", i);
+}
+
+#include <stdio.h>
+#include <bsd/string.h>
+
+int	main(void)
+{
+	size_t size = 7;
+	char dst1[7] = "hello";
+	char dst2[7] = "hello";
+	char src[] = "world";
+	printf("%zu\n", ft_strlcat(dst1, src, size));
+	printf("%zu\n", strlcat(dst2, src, size));
+}
+#include <stdio.h>
+#include <string.h>
+
+int	main(void)
+{
+	const char s[] = "hello";
+	int c = 0;
+	printf("%s\n", ft_strchr(s, c));
+	printf("%s\n", strchr(s, c));
+}
+#include <stdio.h>
+#include <string.h>
+
+int	main(void)
+{
+	const char s[] = "abcdef";
+	int c = 97;
+	printf("%s\n", ft_strrchr(s, c));
+	printf("%s\n", strrchr(s, c));
+}
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	const char s1[] = "hello";
+	const char s2[] = "he";
+	printf("%d\n", ft_strncmp(s1, s2, 2));
+	printf("%d\n", strncmp(s1, s2, 2));
+	 
+}
+#include <stdio.h>
+#include <string.h>
+int main(void)
+{
+	const char s[] = "world";
+	int c = 114;
+	size_t i = 4;
+	printf("%p\n", ft_memchr(s,c,i));
+	printf("%p\n", memchr(s,c,i));
+}
+
+#include <stdio.h>
+#include <bsd/string.h>
+
+int	main(void)
+{
+	const char big[] = "helloworld";
+	const char little[] = "lowo";
+	size_t len = 6;
+	printf("%s\n", ft_strnstr(big, little, len));
+	printf("%s\n", strnstr(big, little, len));	
 }

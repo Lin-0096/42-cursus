@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/17 16:19:18 by linliu            #+#    #+#             */
-/*   Updated: 2025/04/18 14:35:13 by linliu           ###   ########.fr       */
+/*   Created: 2025/04/18 16:07:51 by linliu            #+#    #+#             */
+/*   Updated: 2025/04/18 17:06:48 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_atoi(const char *str)
 {
-	size_t	i;
+	int	i;
+	int	sign;
+	int	number;
 
 	i = 0;
-	while ((s1[i] || s2[i]) && i < n)
+	sign = 1;
+	number = 0;
+	while ((str[i] >= 9 && str[i] <= 13) && str[i] == ' ')
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
 		i++;
 	}
-	return (0);
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (ft_isdigit(str[i]))
+	{
+		number = number * 10 + (str[i] - '0');
+	}
+	return (number * sign);
 }
