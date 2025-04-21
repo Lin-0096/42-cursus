@@ -147,3 +147,13 @@ int	main(void)
 	const	char	str[] = "9223372036854775808";
 	printf("%d\n", ft_atoi(str));
 }
+
+#include <stdio.h>
+
+int	main(void)
+{
+	char const s[] = "hello";
+	unsigned int start = 2;
+	size_t len = 3;
+	printf("%s\n", ft_substr(s, start, len));
+}

@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/20 21:28:32 by linliu            #+#    #+#             */
-/*   Updated: 2025/04/21 12:26:07 by linliu           ###   ########.fr       */
+/*   Created: 2025/04/21 10:27:31 by linliu            #+#    #+#             */
+/*   Updated: 2025/04/21 12:25:20 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	char	*str;
 	size_t	i;
-	void	*ptr;
+	size_t	s_len;
 
-	if (count != 0 && size > SIZE_MAX / count)
+	s_len = ft_strlen(s);
+	if (start > s_len)
+		return (ft_strdup(""));
+	if (len > s_len - start)
+		len = s_len - start;
+	str = malloc(sizeof(char) * (len + 1));
+	if (str == NULL)
 		return (NULL);
-	i = count * size;
-	ptr = malloc(i);
-	if (ptr == NULL)
-		return (NULL);
-	ft_bzero(ptr, i);
-	return (ptr);
+	i = 0;
+	while (i < len)
+	{
+		str[i] = s[start + i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
-
-//have to check if it's overflow
