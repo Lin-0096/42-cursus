@@ -141,3 +141,9 @@ int	main(void)
 	printf("%s\n", ft_strnstr(big, little, len));
 	printf("%s\n", strnstr(big, little, len));	
 }
+#include <stdio.h>
+int	main(void)
+{
+	const	char	str[] = "9223372036854775808";
+	printf("%d\n", ft_atoi(str));
+}
