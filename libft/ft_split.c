@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 16:39:32 by linliu            #+#    #+#             */
-/*   Updated: 2025/04/21 18:10:21 by linliu           ###   ########.fr       */
+/*   Updated: 2025/04/21 19:34:13 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,18 @@ char	**ft_split(char const *s, char c)
 	}
 	arr[a] = NULL;
 	return (arr);
+}
+#include <stdio.h>
+int	main(void)
+{
+	int i = 0;
+	char const s[] = "hello";
+	char c = 'l';
+	char **arr = ft_split(s,c);
+	while (arr[i])
+	{
+		printf("%s\n", arr[i]);
+		//free(arr[i]);
+		i++;
+	}
 }

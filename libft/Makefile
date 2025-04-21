@@ -7,7 +7,11 @@ SRCS = ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
 			ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c \
 			ft_strtrim.c ft_split.c
 
+SRCSB = ft_lsnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c
+
 OBJS = $(SRCS:.c=.o)
+
+OBJSB = $(SRCSB:.c=.o)
 
 CC = cc
 
@@ -19,6 +23,9 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
+
+b: $(OBJSB)
+	ar rcs $(NAME) $(OBJSB)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
