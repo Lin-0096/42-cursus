@@ -157,3 +157,34 @@ int	main(void)
 	size_t len = 3;
 	printf("%s\n", ft_substr(s, start, len));
 }
+#include <stdio.h>
+
+int	main(void)
+{
+	char *s1 = "he";
+	char *s2 = "";
+	printf("%s\n", ft_strjoin(s1, s2));
+}
+#include <stdio.h>
+
+int	main(void)
+{
+	printf("%s\n", ft_strtrim("hello", "llo"));	
+	printf("%s\n", ft_strtrim("helloll", "ll"));
+	printf("%s\n", ft_strtrim("ohelloh", "oh"));		
+}
+#include <stdio.h>
+
+int	main(void)
+{
+	int i = 0;
+	char const s[] = "hello";
+	char c = 'l';
+	char **arr = ft_split(s,c);
+	while (arr[i])
+	{
+		printf("%s\n", arr[i]);
+		free(arr[i]);
+		i++;
+	}
+}
