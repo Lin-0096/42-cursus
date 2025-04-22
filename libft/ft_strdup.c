@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 21:27:36 by linliu            #+#    #+#             */
-/*   Updated: 2025/04/21 12:24:56 by linliu           ###   ########.fr       */
+/*   Updated: 2025/04/22 11:56:51 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,5 @@ char	*ft_strdup(const char *s1)
 	dst[len] = '\0';
 	return (dst);
 }
+//when deal with returning a string only have '\0' or empty, 
+//strdup is really useful

@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 16:39:32 by linliu            #+#    #+#             */
-/*   Updated: 2025/04/21 19:34:13 by linliu           ###   ########.fr       */
+/*   Updated: 2025/04/22 11:57:25 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,10 @@ static int	count_words(const char *s, char c)
 	}
 	return (count);
 }
+
 static int	sublen(char const *s, char c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (!issep(*s, c) && *s)
@@ -54,7 +55,6 @@ static int	sublen(char const *s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	
 	int		a;
 	char	**arr;
 
@@ -75,18 +75,4 @@ char	**ft_split(char const *s, char c)
 	}
 	arr[a] = NULL;
 	return (arr);
-}
-#include <stdio.h>
-int	main(void)
-{
-	int i = 0;
-	char const s[] = "hello";
-	char c = 'l';
-	char **arr = ft_split(s,c);
-	while (arr[i])
-	{
-		printf("%s\n", arr[i]);
-		//free(arr[i]);
-		i++;
-	}
 }

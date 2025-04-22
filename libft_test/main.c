@@ -174,7 +174,6 @@ int	main(void)
 	printf("%s\n", ft_strtrim("ohelloh", "oh"));		
 }
 #include <stdio.h>
-
 int	main(void)
 {
 	int i = 0;
@@ -187,4 +186,15 @@ int	main(void)
 		free(arr[i]);
 		i++;
 	}
+}
+
+#include <stdio.h>
+
+int	main(void)
+{
+	printf("%s\n", ft_itoa(2147483647));
+	printf("%s\n", ft_itoa(-2147483648));
+	printf("%s\n", ft_itoa(1234));
+	printf("%s\n", ft_itoa(-1234));
+	printf("%s\n", ft_itoa(0));
 }

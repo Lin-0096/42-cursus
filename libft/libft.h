@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 15:27:21 by linliu            #+#    #+#             */
-/*   Updated: 2025/04/22 00:37:32 by linliu           ###   ########.fr       */
+/*   Updated: 2025/04/22 11:55:59 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 # include <limits.h>
 # include <stdint.h>
 
-typedef struct	s_list
+typedef struct s_list
 {
-	void *content;
-	struct s_list *next;
-} t_list;
+	void			*content;
+	struct s_list	*next;
+}					t_list;
 
 int		ft_isdigit(int c);
 int		ft_isalpha(int c);
@@ -50,7 +50,8 @@ char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
-char 	**ft_split(char const *s, char c);
+char	**ft_split(char const *s, char c);
+char	*ft_itoa(int n);
 t_list	*ft_lstnew(void *content);
 int		ft_lstsize(t_list *lst);
 
