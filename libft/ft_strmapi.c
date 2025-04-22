@@ -1,48 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/21 14:21:04 by linliu            #+#    #+#             */
-/*   Updated: 2025/04/22 17:16:22 by linliu           ###   ########.fr       */
+/*   Created: 2025/04/22 12:35:39 by linliu            #+#    #+#             */
+/*   Updated: 2025/04/22 17:14:42 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	is_inset(char c, char const *set)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	while (*set)
-	{
-		if (*set == c)
-			return (1);
-		set++;
-	}
-	return (0);
-}
+	unsigned int	len;
+	char			*str;
+	unsigned int	i;
 
-char	*ft_strtrim(char const *s1, char const *set)
-{
-	size_t	begin;
-	size_t	end;
-	char	*str;
-	size_t	i;
-
-	begin = 0;
-	while (s1[begin] && is_inset(s1[begin], set))
-		begin++;
-	end = ft_strlen(s1);
-	while (end > begin && is_inset(s1[end - 1], set))
-		end--;
-	str = malloc(sizeof(char) * (end - begin + 1));
-	if (str == NULL)
+	if (!s || !f)
+		return (NULL);
+	len = ft_strlen(s);
+	str = malloc(sizeof(char) + (len + 1));
+	if (!str)
 		return (NULL);
 	i = 0;
-	while (i < end - begin)
+	while (i < len)
 	{
-		str[i] = s1[begin + i];
+		str[i] = (*f)(i, s[i]);
 		i++;
 	}
 	str[i] = '\0';

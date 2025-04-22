@@ -171,7 +171,8 @@ int	main(void)
 {
 	printf("%s\n", ft_strtrim("hello", "llo"));	
 	printf("%s\n", ft_strtrim("helloll", "ll"));
-	printf("%s\n", ft_strtrim("ohelloh", "oh"));		
+	printf("%s\n", ft_strtrim("ohelloh", "oh"));
+	printf("%s\n", ft_strtrim("ohelloh", "ho"));
 }
 #include <stdio.h>
 int	main(void)
