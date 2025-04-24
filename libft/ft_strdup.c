@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 21:27:36 by linliu            #+#    #+#             */
-/*   Updated: 2025/04/22 11:56:51 by linliu           ###   ########.fr       */
+/*   Updated: 2025/04/24 14:57:21 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strdup(const char *s1)
 	char	*dst;
 	size_t	len;
 
+	if (!s1)
+		return (NULL);
 	len = ft_strlen(s1);
 	dst = malloc(sizeof(char) * (len + 1));
 	if (dst == NULL)

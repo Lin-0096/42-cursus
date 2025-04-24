@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 16:07:51 by linliu            #+#    #+#             */
-/*   Updated: 2025/04/20 22:42:48 by linliu           ###   ########.fr       */
+/*   Updated: 2025/04/24 14:53:26 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,9 @@ int	ft_atoi(const char *str)
 			sign *= -1;
 		i++;
 	}
-	while (ft_isdigit(str[i]))
+	while (str[i] && ft_isdigit(str[i]))
 	{
 		number = number * 10 + (str[i] - '0');
-		if (number * sign > INT_MAX)
-			return (INT_MAX);
-		if (number * sign < INT_MIN)
-			return (INT_MIN);
 		i++;
 	}
 	return (number * sign);
