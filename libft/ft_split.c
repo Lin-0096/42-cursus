@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 16:39:32 by linliu            #+#    #+#             */
-/*   Updated: 2025/04/25 12:31:46 by linliu           ###   ########.fr       */
+/*   Updated: 2025/04/25 15:45:52 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ char	**ft_split(char const *s, char c)
 	int		a;
 	char	**arr;
 
+	if (!s)
+		return (NULL);
 	a = 0;
 	arr = malloc(sizeof(char *) * (count_words(s, c) + 1));
 	if (arr == NULL)

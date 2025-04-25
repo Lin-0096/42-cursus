@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 17:10:26 by linliu            #+#    #+#             */
-/*   Updated: 2025/04/25 12:35:02 by linliu           ###   ########.fr       */
+/*   Updated: 2025/04/25 14:14:34 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@ void	ft_putnbr_fd(int n, int fd)
 {
 	long	number;
 
-	number = n;
-	if (n < 0)
+	number = (long)n;
+	if (number < 0)
 	{
 		ft_putchar_fd('-', fd);
-		n = -n;
+		number = -number;
 	}
-	if (n > 9)
+	if (number > 9)
 	{
-		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(number / 10, fd);
 	}
 	ft_putchar_fd(number % 10 + '0', fd);
 }
