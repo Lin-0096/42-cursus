@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 09:49:47 by linliu            #+#    #+#             */
-/*   Updated: 2025/04/22 11:56:25 by linliu           ###   ########.fr       */
+/*   Updated: 2025/04/25 12:33:59 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,6 @@ char	*ft_itoa(int n)
 		arr[len - 1] = number % 10 + '0';
 		number = number / 10;
 		len--;
-	}	
+	}
 	return (arr);
 }
-//cast n to long to deal with int_min
-//consider about n==0 (can use strdup)
-//negative int can also be divided (same as positive), so when calculate 
-//the len, I don't have to convert it to positive
-//remember to + '0' when convert i to a

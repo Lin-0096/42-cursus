@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 21:28:32 by linliu            #+#    #+#             */
-/*   Updated: 2025/04/22 11:43:29 by linliu           ###   ########.fr       */
+/*   Updated: 2025/04/25 09:52:02 by Lin Liu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,3 @@ void	*ft_calloc(size_t count, size_t size)
 	ft_bzero(ptr, i);
 	return (ptr);
 }
-
-//have to check if it's overflow, so I have to check SIZE_MAX case

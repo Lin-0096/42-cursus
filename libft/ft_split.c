@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 16:39:32 by linliu            #+#    #+#             */
-/*   Updated: 2025/04/23 15:42:01 by linliu           ###   ########.fr       */
+/*   Updated: 2025/04/25 12:31:46 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ static int	sublen(char const *s, char c)
 	}
 	return (len);
 }
+
 static void	*arr_free(char **arr)
 {
 	int	i;

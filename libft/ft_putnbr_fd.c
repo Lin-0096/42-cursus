@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 17:10:26 by linliu            #+#    #+#             */
-/*   Updated: 2025/04/22 17:16:07 by linliu           ###   ########.fr       */
+/*   Updated: 2025/04/25 12:35:02 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,17 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	value;
+	long	number;
 
-	if (n == -2147483648)
-	{
-		write (fd, "-2147483648", 11);
-		return ;
-	}
+	number = n;
 	if (n < 0)
 	{
+		ft_putchar_fd('-', fd);
 		n = -n;
-		write (fd, "-", 1);
 	}
 	if (n > 9)
 	{
 		ft_putnbr_fd(n / 10, fd);
 	}
-	value = n % 10 + '0';
-	write (fd, &value, 1);
+	ft_putchar_fd(number % 10 + '0', fd);
 }

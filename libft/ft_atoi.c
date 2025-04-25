@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 16:07:51 by linliu            #+#    #+#             */
-/*   Updated: 2025/04/24 14:53:26 by linliu           ###   ########.fr       */
+/*   Updated: 2025/04/25 12:30:39 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *str)
 {
-	int		i;
-	int		sign;
-	long	number;
+	int	i;
+	int	sign;
+	int	number;
 
 	i = 0;
 	sign = 1;

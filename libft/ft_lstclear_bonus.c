@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 11:47:23 by linliu            #+#    #+#             */
-/*   Updated: 2025/04/23 16:07:47 by linliu           ###   ########.fr       */
+/*   Updated: 2025/04/25 12:35:56 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	if (lst == NULL || del == NULL)
-		return ;
 	t_list	*ptr;
 	t_list	*tmp;
-	
+
+	if (lst == NULL || del == NULL)
+		return ;
 	ptr = *lst;
 	while (ptr)
 	{

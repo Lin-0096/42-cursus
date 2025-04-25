@@ -6,14 +6,13 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 15:27:21 by linliu            #+#    #+#             */
-/*   Updated: 2025/04/23 16:16:22 by linliu           ###   ########.fr       */
+/*   Updated: 2025/04/25 12:38:29 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stddef.h>
 # include <stdlib.h>
 # include <limits.h>
 # include <stdint.h>
@@ -68,5 +67,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
+t_list	*ft_lstmap(t_list *old_list, void *(*func)(void *), void (*del)(void *));
 
 #endif
