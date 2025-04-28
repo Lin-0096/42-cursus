@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:19:18 by linliu            #+#    #+#             */
-/*   Updated: 2025/04/25 14:46:04 by linliu           ###   ########.fr       */
+/*   Updated: 2025/04/28 09:45:37 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	i;
+	size_t				i;
 	const unsigned char	*n1;
 	const unsigned char	*n2;
-	
+
 	i = 0;
 	n1 = (const unsigned char *)s1;
 	n2 = (const unsigned char *)s2;

@@ -185,8 +185,6 @@ int	main(void)
 	printf("memcmp:%d\n", memcmp("hello", "hello", 5));
 	printf("ft_memcmp:%d\n", ft_memcmp("banana", "anana", 10));
 	printf("memcmp:%d\n", memcmp("banana", "anana", 10));
-	printf("ft_memcmp:%d\n", ft_memcmp("", "hello", 5));
-	printf("memcmp:%d\n", memcmp("", "hello", 5));
 	printf("------------------------------------------------------------------------------------\n");
 	
 	printf("ft_strnstr:%s\n", ft_strnstr("helloworld", "lowo", 6));
@@ -199,8 +197,6 @@ int	main(void)
 	printf("strnstr:%s\n", strnstr("helloworld", "hive", 6));
 	printf("------------------------------------------------------------------------------------\n");
 
-	printf("ft_atoi:%d\n", ft_atoi("9223372036854775808"));
-	printf("atoi:%d\n", atoi("9223372036854775808"));
 	printf("ft_atoi:%d\n", ft_atoi("-234"));
 	printf("atoi:%d\n", atoi("-234"));
 	printf("ft_atoi:%d\n", ft_atoi("-+234"));

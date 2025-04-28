@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 14:21:04 by linliu            #+#    #+#             */
-/*   Updated: 2025/04/25 16:05:16 by linliu           ###   ########.fr       */
+/*   Updated: 2025/04/28 10:11:48 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*str;
 	size_t	i;
 
+	if (!s1 || !set)
+		return (NULL);
 	begin = 0;
 	while (s1[begin] && is_inset(s1[begin], set))
 		begin++;
