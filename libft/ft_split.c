@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 16:39:32 by linliu            #+#    #+#             */
-/*   Updated: 2025/04/25 15:45:52 by linliu           ###   ########.fr       */
+/*   Updated: 2025/04/30 15:49:23 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,12 @@ static int	sublen(char const *s, char c)
 	return (len);
 }
 
-static void	*arr_free(char **arr)
+static void	*arr_free(char **arr, int i)
 {
-	int	i;
-
-	i = 0;
-	while (arr[i])
+	while (i >= 0)
 	{
 		free (arr[i]);
-		i++;
+		i--;
 	}
 	free(arr);
 	return (NULL);
@@ -84,7 +81,7 @@ char	**ft_split(char const *s, char c)
 		{
 			arr[a] = ft_substr(s, 0, sublen(s, c));
 			if (!arr[a])
-				return (arr_free(arr));
+				return (arr_free(arr, a));
 			s += sublen(s, c);
 			a++;
 		}
