@@ -1,0 +1,54 @@
+#CPU: central processing unit, the brain of the computer, core is the mini-brain of the CPU
+#physical CPU: the actual, physical chip
+#virtual CPU: used in virtual machines, a share of time on physical or logical core
+#CORE: imagine a CPU is a kitchen, and each core is a cook;(an independent processing unit inside a CPU), each core can run one thread independently
+#physical core: a real, physical core inside the CPU; A CPU  with 6 cores = 6 physical cores
+#logical core: one physical core -> two logical cores(thanks to hyper-threading); Each physical core can sometimes run 2 threads at the same time.
+,allows each physical core to handle multiple threads.
+
+#Architecture: the type of CPU your computer uses, specifically, the instruction set that the CPU understands.
+it determines how software interacts with hardware.
+#uname stands for Unix Name, it's a command used to get system information.
+#sort: sorts lines if text; -u unique, it removes duplicate lines after sorting
+#Kernel version: think of the kernel as the bridge between application and hardware
+#physical id: physical id entries tell you which CPU each core belongs to.
+#processor: Each line starting with processor represents a virtual processor (logical core).
+
+#RAM:  RAM is your computer's short-term memory where active data and programs are stored for quick access by the CPU
+#free: displays system memory usage 
+#--mega: Shows output in megabytes (MB) 
+#awk: A text-processing tool that extracts and manipulates data; basic syntex:awk 'pattern{action}'
+#{print $2}: if the condition ($1 == "Mem:") is true, awk executes the action inside { }.print $2 outputs the second column of that line.
+
+#Disk: refers to permanent storage (HDD, SSD, etc.) where data is stored even after power-off.
+#df: disk filesystem, display information about the amount of disk space used and available on filesystems.
+#grep : search for pattern in text:"/dev/":Filters lines containing /dev/
+#grep -v(invert): show line do not match 
+#disk_t/1024: Converts MB to GB (since 1024 MB = 1 GB)
+
+#vmstat:displays real-time system performance statistics related to:CPU,Memory,Processes,I/O,Swap usage
+#vmstat basic syntax: vmstat interval count
+#why interval: The values are averages since the last system boot — not helpful for diagnosing short-term issues.
+#Uses "expr" for arithmetic (old-school but portable)
+#cpul (idle):Percentage of time the CPU is not working
+
+#who:The who command in Linux/Unix is used to show who is currently logged in to the system and some related session information.
+#-b: Shows the last boot time of the system
+
+#lvm:LVM stands for Logical Volume Manager. It is a flexible and powerful system for managing disk storage in Linux.
+#it can abstract physical disks so you can create, resize, and manage storage more easily and flexibly than with traditional partitions.
+#grep -p:  Searches quietly (no output) for the string "lvm"; if the search succeeds (exit status 0), echo "yes" runs.
+
+#ss: socket statistics; socket can sending and receiving data across a network; it allows communication between computers
+#-ta: t for tcp sockets; a for show all sockets
+#ESTAB: it refers to the state of a TCP connection; The connection between two devices has been successfully opened and is now actively exchanging data.
+
+#IPv4: IPv4 address meaning the computer's unique numerical identifier
+#-I : ip address
+
+#link/ether: This refers to the Ethernet link type, which is the most common type of network interface on modern systems (e.g., wired and wireless network interfaces).
+#link refers to the link layer in the OSI model, where physical device information (such as MAC addresses) is stored.
+#MAC: media access control ;ether is the Ethernet protocol used for most wired connections, which uses MAC addresses to identify devices on the local network.
+
+#journalctl:  a command that queries the systemd journal logs.
+#_COMN: a field in the systemd journal logs. It refers to the name of the command that generated the log entry.
