@@ -1,0 +1,22 @@
+#What is VM?
+It's like running a computer inside your computer;  It runs an operating system and applications 
+just like a real computer, but it's hosted on another physical machine, called the host.
+
+#What is the purpose of virtual machines?
+The purpose of virtual machines (VMs) is to simulate a physical computer in software, 
+allowing multiple operating systems and applications to run on a single physical machine 
+independently and securely. Each VM runs in its own environment, so crashes in one VM 
+don’t affect the host or other VMs.
+
+#Differences between apt and aptitude
+Aptitude is an enhanced version of apt. APT is a lower-level package manager and aptitude 
+is a high-level package manager. Another big difference is the functionality offered by both tools. 
+Aptitude offers better functionality compared to apt-get. Both are able to provide the necessary 
+means to perform package management. However, if you are looking for a more feature-rich approach, Aptitude should be it.
+
+#What is LVM
+It is a logical volume manager. It provides a method for allocating space on mass storage devices, which is more flexible than 
+conventional partitioning schemes for storing volumes.
+
+#What is APPArmor
+A security module in the Linux kernel that allows the system administrator to restrict the capabilities of a program.

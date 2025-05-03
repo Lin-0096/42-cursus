@@ -1,3 +1,6 @@
+#Signature
+generate hash: sha1sum machinename.vdi
+
 #USER
 creat new user: sudo adduser <user_name>
 creat new group: sudo addgroup <group_name>
