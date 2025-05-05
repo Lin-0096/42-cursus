@@ -13,8 +13,10 @@ check the SSH service state: sudo service ssh status
 connect via ssh from our machine: ssh linliu@localhost -p 4241
 check if ssh is present: which ssh
 check if it is running: sudo service ssh status
-?????log in with newuser, then try to connect over ssh with the root user: ssh root@localhost -p 4241 (but we do not have permission)
+log in with newuser, then try to connect over ssh with the root user: ssh root@localhost -p 4241 (but we do not have permission)
 connect via ssh with the new user using the command: ssh newuser@localhost -p 4241
+ssh configuring: sudo nano /etc/ssh/sshd_config(server-side) ; sudo nano /etc/ssh/sshd_config(client-side)
+
 
 #UFW
 check the ufw status: sudo service ufw status
@@ -44,7 +46,7 @@ Check that sudo is installed: which sudo
 check sudo rules: vim /etc/sudoers.d/sudo_config
 check sudo logs: cd /var/log/sudo; ls; cat sudo_config
 
-??????#crontab of script
+#crontab of script
 Modify the runtime of the script from 10 minutes to 1: sudo crontab -u root -e (modify in vim)
 
 

@@ -37,7 +37,7 @@ it determines how software interacts with hardware.
 
 #lvm:LVM stands for Logical Volume Manager. It is a flexible and powerful system for managing disk storage in Linux.
 #it can abstract physical disks so you can create, resize, and manage storage more easily and flexibly than with traditional partitions.
-#grep -p:  Searches quietly (no output) for the string "lvm"; if the search succeeds (exit status 0), echo "yes" runs.
+#grep -q:  Searches quietly (no output) for the string "lvm"; if the search succeeds (exit status 0), echo "yes" runs.
 
 #ss: socket statistics; socket can sending and receiving data across a network; it allows communication between computers
 #-ta: t for tcp sockets; a for show all sockets
