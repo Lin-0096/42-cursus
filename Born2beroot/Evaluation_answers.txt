@@ -20,3 +20,6 @@ conventional partitioning schemes for storing volumes.
 
 #What is APPArmor
 A security module in the Linux kernel that allows the system administrator to restrict the capabilities of a program.
+
+#why Debian? Debian vs CentOS
+
