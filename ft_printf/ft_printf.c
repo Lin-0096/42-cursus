@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 09:42:25 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/06 11:50:10 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/06 16:47:54 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,41 +14,33 @@
 #include <unistd.h>
 #include "ft_printf.h"
 
-static void	write_char(char c)
+static size_t	write_char(char c)
 {
-	write (1, &c, 1);
-	return ;
+	return (write (1, &c, 1));
 }
 
-static void	write_str(const char *s)
+static size_t	write_str(const char *s)
 {
 	int	len;
 	
 	if (!s)
-		return ;
+		return (-1);
 	len = 0;
 	while (s[len])
 		len++;
-	write (1, s, len);
-	return ;
+	return (write (1, s, len));
 }
 
-/*static void	write_nbr(int n)
+static size_t	check_type(const char format, va_list *args)
 {
-	long	number;
-
-	number = (long)n;
-	if (number < 0)
-	{
-		write_char('-');
-		number = -number;
-	}
-	if (number > 9)
-	{
-		write_nbr(number / 10);
-	}
-	write_char(number % 10 + '0');
-}*/
+	if (format == 's')
+		return (write_str(va_arg(*args, const char *)));
+	if (format == 'c')
+		return (write_char(va_arg(*args, int)));
+	if (format == '%')
+		return (write (1, "%", 1));
+	return (-1);
+}
 
 int		ft_printf(const char *format, ...)
 {
@@ -57,18 +49,30 @@ int		ft_printf(const char *format, ...)
 
 	if (!format)
 		return (-1);
+	count = 0;
 	va_start(args, format);
 	while (*format)
 	{
 		if (*format == '%')
 		{
 			format++;
-			if (*format == 'c')
-				return (write_char(va_arg(args, char)));
+			count += check_type(*format, &args);
 		}
 		else
+		{
 			count++;
+			write (1, format, 1);
+		}
+		format++;
 	}
 	va_end(args);
 	return count;
+}
+
+#include <stdio.h>
+
+int	main(void)
+{ 
+	ssize_t i = ft_printf("hello %s","linliu");
+	printf("%i",i);
 }
