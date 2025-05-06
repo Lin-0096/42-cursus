@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: lin <lin@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 09:42:25 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/06 16:47:54 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/06 23:39:44 by lin              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,17 @@ int		ft_printf(const char *format, ...)
 	va_start(args, format);
 	while (*format)
 	{
-		if (*format == '%')
+		if (*format == '%' && *(format + 1))
 		{
 			format++;
-			count += check_type(*format, &args);
+			if (check_type(*format, &args) == -1)
+			{
+				count += 2;
+				write (1, "%", 1);
+				write (1, format, 1);
+			}
+			else
+				count += check_type(*format, &args);
 		}
 		else
 		{
@@ -73,6 +80,6 @@ int		ft_printf(const char *format, ...)
 
 int	main(void)
 { 
-	ssize_t i = ft_printf("hello %s","linliu");
-	printf("%i",i);
+	ssize_t i = ft_printf("hello%l%","linliu");
+	printf("%zi",i);
 }
