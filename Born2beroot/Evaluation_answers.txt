@@ -23,3 +23,4 @@ A security module in the Linux kernel that allows the system administrator to re
 
 #why Debian? Debian vs Rockey
 
+#TTY?
