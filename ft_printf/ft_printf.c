@@ -6,7 +6,7 @@
 /*   By: lin <lin@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 09:42:25 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/06 23:39:44 by lin              ###   ########.fr       */
+/*   Updated: 2025/05/06 23:43:29 by lin              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,10 @@ static size_t	check_type(const char format, va_list *args)
 		return (write_str(va_arg(*args, const char *)));
 	if (format == 'c')
 		return (write_char(va_arg(*args, int)));
+	//if (format == 'i' || format == 'd')
 	if (format == '%')
 		return (write (1, "%", 1));
+	
 	return (-1);
 }
 
