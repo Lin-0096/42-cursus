@@ -6,7 +6,7 @@
 /*   By: lin <lin@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 09:42:25 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/06 23:43:29 by lin              ###   ########.fr       */
+/*   Updated: 2025/05/07 00:00:45 by lin              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,17 +55,16 @@ int		ft_printf(const char *format, ...)
 	va_start(args, format);
 	while (*format)
 	{
-		if (*format == '%' && *(format + 1))
+		if (*format == '%' && *++format)
 		{
-			format++;
-			if (check_type(*format, &args) == -1)
+			if (check_type(*++format, &args) == -1)
 			{
 				count += 2;
 				write (1, "%", 1);
 				write (1, format, 1);
 			}
 			else
-				count += check_type(*format, &args);
+				count += check_type(*++format, &args);
 		}
 		else
 		{
