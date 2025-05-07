@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   tect.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: lin <lin@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 17:03:38 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/07 17:03:58 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/07 23:23:20 by lin              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include "ft_printf.h"
 
 int	main(void)
 { 
-	int i = ft_printf("hello %i %d",-123456, 516519);
-	printf("\n%i",i);
+	int i = ft_printf("hello %i %d %u",-123456, 516519, -1);
+	printf("\n%i", i);
 }
