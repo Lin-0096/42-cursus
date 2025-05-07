@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 09:42:25 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/07 13:12:01 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/07 17:04:59 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,16 @@ static int	check_type(const char format, va_list *args)
 int		ft_printf(const char *format, ...)
 {
 	va_list	args;
-	int 	count;
-	
+	int		count;
+
 	if (!format)
 		return (-1);
 	count = 0;
 	va_start(args, format);
 	while (*format)
 	{
-		if (*format == '%' /*&& *(format + 1)*/)
+		if (*format == '%' /*&& *(++format)*/)
 		{
-			format++;
 			/*if (value == -1)
 			{
 				count += 2;
@@ -52,7 +51,7 @@ int		ft_printf(const char *format, ...)
 				write (1, format, 1);
 			}
 			else*/
-			count += check_type(*format, &args);
+			count += check_type(*++format, &args);
 		}
 		else
 		{
@@ -62,13 +61,5 @@ int		ft_printf(const char *format, ...)
 		format++;
 	}
 	va_end(args);
-	return count;
-}
-
-#include <stdio.h>
-
-int	main(void)
-{ 
-	int i = ft_printf("hello %i %d",-123456, 516519);
-	printf("\n%i",i);
+	return (count);
 }

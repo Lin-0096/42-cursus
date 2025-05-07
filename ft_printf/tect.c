@@ -1,33 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   write_int.c                                        :+:      :+:    :+:   */
+/*   tect.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 11:28:24 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/07 17:03:11 by linliu           ###   ########.fr       */
+/*   Created: 2025/05/07 17:03:38 by linliu            #+#    #+#             */
+/*   Updated: 2025/05/07 17:03:58 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stdio.h>
 
-int	write_int(int n)
-{
-	long	number;
-	int		count;
-
-	count = 0;
-	number = (long)n;
-	if (number < 0)
-	{
-		count += write_char('-');
-		number = -number;
-	}
-	if (number > 9)
-	{
-		count += write_int(number / 10);
-	}
-	count += write_char(number % 10 + '0');
-	return (count);
+int	main(void)
+{ 
+	int i = ft_printf("hello %i %d",-123456, 516519);
+	printf("\n%i",i);
 }
