@@ -42,6 +42,7 @@ it determines how software interacts with hardware.
 #ss: socket statistics; socket can sending and receiving data across a network; it allows communication between computers
 #-ta: t for tcp sockets; a for show all sockets
 #ESTAB: it refers to the state of a TCP connection; The connection between two devices has been successfully opened and is now actively exchanging data.
+#TCP:A TCP connection is a reliable and structured way for two devices to communicate over a network. It ensures that data arrives completely, accurately, and in order
 
 #IPv4: IPv4 address meaning the computer's unique numerical identifier
 #-I : ip address

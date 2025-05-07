@@ -1,6 +1,9 @@
 #Signature
 generate hash: sha1sum machinename.vdi
 
+does not have a graphical environment at startup: ls /usr/bin/*session
+check Debian: lsb_release -a
+
 #USER
 creat new user: sudo adduser <user_name>
 creat new group: sudo addgroup <group_name>
@@ -28,8 +31,8 @@ delete port: sudo ufw delete <num_rule> --> check active rules
 #SUDO policies
 nano /etc/sudoers.d/sudo_config
 
-#Pssword change policy
-nano /etc/pam.d/common-password
+#Pssword
+how to change policy : nano /etc/pam.d/common-password
 
 #Hostname
 checkhost: hostname
@@ -42,7 +45,7 @@ sudo reboot
 Check all partitions are as indicated in the subject: lsblk
 
 #Check sudo
-Check that sudo is installed: which sudo
+Check that sudo is installed: which sudo (If sudo is not installed, sudo not found)
 check sudo rules: vim /etc/sudoers.d/sudo_config
 check sudo logs: cd /var/log/sudo; ls; cat sudo_config
 

@@ -22,5 +22,22 @@ conventional partitioning schemes for storing volumes.
 A security module in the Linux kernel that allows the system administrator to restrict the capabilities of a program.
 
 #why Debian? Debian vs Rockey
+ Debian is a highly stable, flexible, and general-purpose Linux distribution
+rockey is well-suited for businesses or production systems where stability and support are critical.
 
 #TTY?
+TTY refers to a terminal interface or console that allows users to interact with the operating system 
+by typing commands and receiving text-based output.
+
+#the purpose of sudo
+This helps in increasing security by ensuring that only authorized users can perform administrative tasks without 
+logging into the root account directly. By using sudo, you can perform administrative tasks without giving users full root access. 
+This helps limit the damage in case a user makes a mistake or an attacker gains access to your account.
+
+#why UFW
+protect our system, A firewall helps block unwanted or malicious traffic,ensuring that only authorized users can access your system
+
+#what is SSH
+SSH (Secure Shell) is used to securely connect to remote computers and manage them over an unsecured network
+It allows for secure access to remote systems, transfer of files, and execution of commands, all while keeping your data safe. 
+SSH is a must-have for security and efficiency in the digital age.
