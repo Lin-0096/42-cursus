@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   write_char.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/06 09:51:27 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/07 12:03:47 by linliu           ###   ########.fr       */
+/*   Created: 2025/05/07 11:25:14 by linliu            #+#    #+#             */
+/*   Updated: 2025/05/07 12:03:19 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-#include <stdarg.h>
-#include <unistd.h>
-
-int		ft_printf(const char *, ...);
-int		write_char(char c);
-int		write_str(const char *s);
-int		write_int(int n);
-
-#endif
+int	write_char(char c)
+{
+	return (write (1, &c, 1));
+}

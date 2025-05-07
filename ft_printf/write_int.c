@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   write_int.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/06 09:51:27 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/07 12:03:47 by linliu           ###   ########.fr       */
+/*   Created: 2025/05/07 11:28:24 by linliu            #+#    #+#             */
+/*   Updated: 2025/05/07 12:03:24 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-#include <stdarg.h>
-#include <unistd.h>
+int	write_int(int n)
+{
+	long	number;
+	int		count;
+	
+	count = 0;
+	number = (long)n;
+	if (number < 0)
+	{
+		count += write_char('-');
+		number = -number;
+	}
+	if (number > 9)
+	{
+		count += write_int(number / 10);
+	}
+	return (count += write_char(number % 10 + '0'));
+}
 
-int		ft_printf(const char *, ...);
-int		write_char(char c);
-int		write_str(const char *s);
-int		write_int(int n);
-
-#endif

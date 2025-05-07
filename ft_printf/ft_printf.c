@@ -3,44 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lin <lin@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 09:42:25 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/07 00:00:45 by lin              ###   ########.fr       */
+/*   Updated: 2025/05/07 13:12:01 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <unistd.h>
 #include "ft_printf.h"
 
-static size_t	write_char(char c)
-{
-	return (write (1, &c, 1));
-}
-
-static size_t	write_str(const char *s)
-{
-	int	len;
-	
-	if (!s)
-		return (-1);
-	len = 0;
-	while (s[len])
-		len++;
-	return (write (1, s, len));
-}
-
-static size_t	check_type(const char format, va_list *args)
+static int	check_type(const char format, va_list *args)
 {
 	if (format == 's')
 		return (write_str(va_arg(*args, const char *)));
 	if (format == 'c')
 		return (write_char(va_arg(*args, int)));
-	//if (format == 'i' || format == 'd')
+	if (format == 'i' || format == 'd')
+		return (write_int(va_arg(*args, int)));
+	/*if (format == 'u')
+		return (write_uint(va_arg(*args, int)));
+	if (format == 'x')
+		return (write_lowhex(va_arg(*args, int)));
+	if (format == 'X')
+		return (write_uphex(va_arg(*args, int)));*/
 	if (format == '%')
 		return (write (1, "%", 1));
-	
 	return (-1);
 }
 
@@ -48,23 +35,24 @@ int		ft_printf(const char *format, ...)
 {
 	va_list	args;
 	int 	count;
-
+	
 	if (!format)
 		return (-1);
 	count = 0;
 	va_start(args, format);
 	while (*format)
 	{
-		if (*format == '%' && *++format)
+		if (*format == '%' /*&& *(format + 1)*/)
 		{
-			if (check_type(*++format, &args) == -1)
+			format++;
+			/*if (value == -1)
 			{
 				count += 2;
 				write (1, "%", 1);
 				write (1, format, 1);
 			}
-			else
-				count += check_type(*++format, &args);
+			else*/
+			count += check_type(*format, &args);
 		}
 		else
 		{
@@ -81,6 +69,6 @@ int		ft_printf(const char *format, ...)
 
 int	main(void)
 { 
-	ssize_t i = ft_printf("hello%l%","linliu");
-	printf("%zi",i);
+	int i = ft_printf("hello %i %d",-123456, 516519);
+	printf("\n%i",i);
 }
