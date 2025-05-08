@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   write_hex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/06 09:51:27 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/08 14:29:50 by linliu           ###   ########.fr       */
+/*   Created: 2025/05/08 10:09:16 by linliu            #+#    #+#             */
+/*   Updated: 2025/05/08 15:23:53 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
+int	 write_hex(unsigned int n, const char* hex)
+{
+	int	count;
 
-# include <stdarg.h>
-# include <unistd.h>
-
-int	ft_printf(const char *, ...);
-int	write_char(char c);
-int	write_str(const char *s);
-int	write_int(int n);
-int write_uint(unsigned int n);
-int write_hex(unsigned int n, const char* base);
-
-#endif
+	count = 0;
+	if (n >= 16)
+	{
+		count += write_hex(n / 16, hex);
+	}
+	count += write_char(hex[n % 16]);
+	return (count);
+}

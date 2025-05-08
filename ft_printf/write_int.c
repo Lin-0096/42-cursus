@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 11:28:24 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/07 17:03:11 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/08 14:17:14 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	write_int(int n)
 		count += write_char('-');
 		number = -number;
 	}
-	if (number > 9)
+	if (number >= 10)
 	{
 		count += write_int(number / 10);
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   write_uint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lin <lin@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 23:04:45 by lin               #+#    #+#             */
-/*   Updated: 2025/05/07 23:23:01 by lin              ###   ########.fr       */
+/*   Updated: 2025/05/08 14:17:25 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ int write_uint(unsigned int n)
 	int		count;
 
 	count = 0;
-	if (number > 9)
+	if (n >=10)
 	{
-		count += write_int(number / 10);
+		count += write_int(n / 10);
 	}
-	count += write_char(number % 10 + '0');
+	count += write_char(n % 10 + '0');
 	return (count);
 }

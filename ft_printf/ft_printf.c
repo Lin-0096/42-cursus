@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lin <lin@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 09:42:25 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/07 23:25:25 by lin              ###   ########.fr       */
+/*   Updated: 2025/05/08 15:13:02 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 static int	check_type(const char format, va_list *args)
 {
@@ -22,11 +23,11 @@ static int	check_type(const char format, va_list *args)
 		return (write_int(va_arg(*args, int)));
 	if (format == 'u')
 		return (write_uint(va_arg(*args, unsigned int)));
-	/*if (format == 'x')
-		return (write_lowhex(va_arg(*args, int)));
+	if (format == 'x')
+		return (write_hex(va_arg(*args, unsigned int), "0123456789abcdef"));
 	if (format == 'X')
-		return (write_uphex(va_arg(*args, int)));
-	if (format == 'p')
+		return (write_hex(va_arg(*args, unsigned int), "0123456789ABCDEF"));
+	/*if (format == 'p')
 		return (write_pointer(va_arg(*args, int)));*/
 	if (format == '%')
 		return (write (1, "%", 1));
@@ -44,16 +45,14 @@ int		ft_printf(const char *format, ...)
 	va_start(args, format);
 	while (*format)
 	{
-		if (*format == '%' /*&& *(++format)*/)
+		if (*format == '%' && *(++format))
 		{
-			/*if (value == -1)
+			if (check_type(*format, &args) == -1)
 			{
-				count += 2;
-				write (1, "%", 1);
-				write (1, format, 1);
+				break;
 			}
-			else*/
-			count += check_type(*++format, &args);
+			else
+				count += check_type(*format, &args);
 		}
 		else
 		{
