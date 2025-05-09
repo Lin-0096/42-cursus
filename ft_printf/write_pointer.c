@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   write_hex.c                                        :+:      :+:    :+:   */
+/*   write_pointer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/08 10:09:16 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/08 15:23:53 by linliu           ###   ########.fr       */
+/*   Created: 2025/05/09 11:18:43 by linliu            #+#    #+#             */
+/*   Updated: 2025/05/09 17:21:37 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-int	 write_hex(unsigned int n, const char* hex)
+
+int	write_pointer(unsigned long ptr, const char *hex)
 {
 	int	count;
 
+	if (!ptr)
+		return (write (1,"(nil)", 5));
 	count = 0;
-	if (n >= 16)
-	{
-		count += write_hex(n / 16, hex);
-	}
-	count += write_char(hex[n % 16]);
+	count += write(1, "0x", 2);
+	count += write_uint_hex(ptr, hex, 16);
 	return (count);
 }

@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 11:26:53 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/07 17:03:00 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/09 11:49:37 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	write_str(const char *s)
 	int	len;
 
 	if (!s)
-		return (-1);
+		return (write (1, "(null)", 6));
 	len = 0;
 	while (s[len])
 		len++;

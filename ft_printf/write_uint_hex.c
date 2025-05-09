@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   write_uint.c                                       :+:      :+:    :+:   */
+/*   write_uint_hex.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 23:04:45 by lin               #+#    #+#             */
-/*   Updated: 2025/05/08 14:17:25 by linliu           ###   ########.fr       */
+/*   Created: 2025/05/09 16:19:18 by linliu            #+#    #+#             */
+/*   Updated: 2025/05/09 17:05:13 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int write_uint(unsigned int n)
+int	 write_uint_hex(unsigned long n, const char* hex, unsigned long base)
 {
-	int		count;
+	int	count;
 
 	count = 0;
-	if (n >=10)
+	if (n >= base)
 	{
-		count += write_int(n / 10);
+		count += write_uint_hex(n / base, hex, base);
 	}
-	count += write_char(n % 10 + '0');
+	count += write_char(hex[n % base]);
 	return (count);
 }

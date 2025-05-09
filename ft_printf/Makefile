@@ -1,7 +1,7 @@
 NAME := libftprintf.a
 
 SRCS := ft_printf.c write_char.c write_str.c \
-		write_int.c write_uint.c write_hex.c \
+		write_int.c write_uint_hex.c write_pointer.c \
 
 OBJECTS := $(SRCS:%.c=%.o)
 
@@ -18,10 +18,10 @@ $(NAME): $(OBJECTS)
 	cc $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJECTS)
+	@$(RM) $(OBJECTS)
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all
 
