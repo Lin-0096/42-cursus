@@ -31,6 +31,8 @@ static int	check_type(const char format, va_list *args)
 		return (write_pointer(va_arg(*args, unsigned long), "0123456789abcdef"));
 	if (format == '%')
 		return (write (1, "%", 1));
+	if (format == 0)
+		return (-1)
 	return (-1);
 }
 
