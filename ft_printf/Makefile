@@ -15,10 +15,14 @@ $(NAME): $(OBJECTS)
 	ar rcs $(NAME) $(OBJECTS)
 
 %.o: %.c
-	cc $(CFLAGS) -c $< -o $@
+	@ cc $(CFLAGS) -c $< -o $@
 
+test: test.c $(NAME)
+	cc $(CFLAGS) $^ -o $@
+	./$@
+	
 clean:
-	@$(RM) $(OBJECTS)
+	@$(RM) $(OBJECTS) test
 
 fclean: clean
 	@$(RM) $(NAME)

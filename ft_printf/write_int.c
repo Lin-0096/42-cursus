@@ -3,31 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   write_int.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: lin <lin@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 11:28:24 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/08 14:17:14 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/11 23:16:35 by lin              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	write_int(int n)
+int	write_int(long n)
 {
-	long	number;
 	int		count;
+	int		check;
 
 	count = 0;
-	number = (long)n;
-	if (number < 0)
+	if (n < 0)
 	{
-		count += write_char('-');
-		number = -number;
+		check = write_char('-');
+		if (check == -1)
+			return (-1);
+		count += check;
+		n = -n;
 	}
-	if (number >= 10)
+	if (n >= 10)
 	{
-		count += write_int(number / 10);
+		check = write_int(n / 10);
+		if (check == -1)
+			return (-1);
+		count += check;
 	}
-	count += write_char(number % 10 + '0');
+	check = write_char(n % 10 + '0');
+	if (check == -1)
+		return (-1);
+	count += check;
 	return (count);
 }

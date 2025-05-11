@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: lin <lin@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 09:51:27 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/11 11:02:33 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/11 23:16:55 by lin              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 int	ft_printf(const char *format, ...);
 int	write_char(char c);
 int	write_str(const char *s);
-int	write_int(int n);
+int	write_int(long n);
 int	write_uint_base(unsigned long n, const char *hex, unsigned long base);
 int	write_pointer(void *ptr, const char *hex);
 
