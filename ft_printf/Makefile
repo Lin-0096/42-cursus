@@ -1,7 +1,7 @@
 NAME := libftprintf.a
 
 SRCS := ft_printf.c write_char.c write_str.c \
-		write_int.c write_uint_hex.c write_pointer.c \
+		write_int.c write_uint_base.c write_pointer.c \
 
 OBJECTS := $(SRCS:%.c=%.o)
 

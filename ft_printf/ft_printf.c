@@ -6,12 +6,11 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 09:42:25 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/09 17:17:27 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/11 11:02:25 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 static int	check_type(const char format, va_list *args)
 {
@@ -22,17 +21,17 @@ static int	check_type(const char format, va_list *args)
 	if (format == 'i' || format == 'd')
 		return (write_int(va_arg(*args, int)));
 	if (format == 'u')
-		return (write_uint_hex(va_arg(*args, unsigned int), "0123456789", 10));
+		return (write_uint_base(va_arg(*args, unsigned int), "0123456789", 10));
 	if (format == 'x')
-		return (write_uint_hex(va_arg(*args, unsigned int), "0123456789abcdef", 16));
+		return (write_uint_base(va_arg(*args, unsigned int), HEX_LOWER, 16));
 	if (format == 'X')
-		return (write_uint_hex(va_arg(*args, unsigned int), "0123456789ABCDEF", 16));
+		return (write_uint_base(va_arg(*args, unsigned int), HEX_UPPER, 16));
 	if (format == 'p')
-		return (write_pointer(va_arg(*args, unsigned long), "0123456789abcdef"));
+		return (write_pointer(va_arg(*args, void *), HEX_LOWER));
 	if (format == '%')
 		return (write (1, "%", 1));
 	if (format == 0)
-		return (-1)
+		return (-1);
 	return (-1);
 }
 
@@ -52,7 +51,7 @@ int	ft_printf(const char *format, ...)
 		{
 			type = check_type(*++format, &args);
 			if (type == -1)
-				return (-1);
+				return (va_end(args), -1);
 			count += type;
 		}
 		else
