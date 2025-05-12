@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   write_uint_base.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lin <lin@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 11:01:44 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/11 23:06:19 by lin              ###   ########.fr       */
+/*   Updated: 2025/05/12 09:42:09 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	write_uint_base(unsigned long n, const char *hex, unsigned long base)
 {
 	int	count;
-	int check;
+	int	check;
 
 	count = 0;
 	if (n >= base)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   write_pointer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lin <lin@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 11:18:43 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/11 23:28:48 by lin              ###   ########.fr       */
+/*   Updated: 2025/05/12 09:41:54 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int	write_pointer(void *ptr, const char *hex)
 {
 	int	count;
-	int check;
-	
+	int	check;
+
 	if (!ptr)
 		return (write (1, "(nil)", 5));
 	count = 0;

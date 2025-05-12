@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lin <lin@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 17:03:38 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/11 23:10:51 by lin              ###   ########.fr       */
+/*   Updated: 2025/05/12 10:21:17 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,27 +35,26 @@ int	main(void)
 	printf("character: %c\n", '@');
 	
 	printf("\ntest x,X---------------------------------------------------\n");
-	ft_printf("hexadecimal uppercase: %X\n", 0xBEEF);
-	printf("hexadecimal uppercase: %X\n", 0xBEEF);
-	ft_printf("hexadecimal lowercase: %x\n", UINT_MAX);
-	printf("hexadecimal lowercase: %x\n", UINT_MAX);
-	ft_printf("hexadecimal zero: %x\n", 0);
-	printf("hexadecimal zero: %x\n", 0);
-	ft_printf("hexadecimal negative: %X\n", -0xff);
-	printf("hexadecimal negative: %X\n", -0xff);
-	ft_printf("hexadecimal: %x\n", 0xc0de);
-	printf("hexadecimal: %x\n", 0xc0de);
+	ft_printf("fake hexadecimal uppercase: %X\n", 0xBEEF);
+	printf("real hexadecimal uppercase: %X\n", 0xBEEF);
+	ft_printf("fake hexadecimal lowercase: %x\n", UINT_MAX);
+	printf("real hexadecimal lowercase: %x\n", UINT_MAX);
+	ft_printf("fake hexadecimal zero: %x\n", 0);
+	printf("real hexadecimal zero: %x\n", 0);
+	ft_printf("fake hexadecimal negative: %X\n", -0xff);
+	printf("real hexadecimal negative: %X\n", -0xff);
+	ft_printf("fake hexadecimal: %x\n", 0xc0de);
+	printf("real hexadecimal: %x\n", 0xc0de);
 	
 	printf("\ntest other---------------------------------------------------\n");
 	ft_printf("fake: string\n");
 	printf("real: string\n");
-	ft_printf("fake: percent sign: 100%%");
-	printf("real: percent sign: 100%%");
+	ft_printf("fake: percent sign: 100%%\n");
+	printf("real: percent sign: 100%%\n");
+	
 	int i  = ft_printf("\npercent null: 100%");
 	int j  = ft_printf("\npercent exclude: 100%a\n");
 	ft_printf("\n%d %d\n", i, j);
-	// int i  = printf("\npercent null: 100%");
-	// int j  = printf("\npercent exclude: 100%a\n");
 	printf("\n%d %d\n", i, j);
 	
 	printf("\ntest i,d,uint------------------------------------------------\n");

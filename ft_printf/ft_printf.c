@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lin <lin@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 09:42:25 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/11 23:48:27 by lin              ###   ########.fr       */
+/*   Updated: 2025/05/12 10:23:17 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,12 @@ static int	check_type(const char format, va_list *args)
 	return (-1);
 }
 
-int	ft_printf(const char *format, ...)
+int	format_loop(const char *format, va_list *args)
 {
-	va_list	args;
-	int		count;
-	int		type;
-	
-	if (!format || write(1, "", 0) < 0)
-		return (-1);
+	int	type;
+	int	count;
+
 	count = 0;
-	va_start(args, format);
 	while (*format)
 	{
 		if (*format == '%')
@@ -50,18 +46,31 @@ int	ft_printf(const char *format, ...)
 			format++;
 			if (format == 0)
 				return (-1);
-			type = check_type(*format, &args);
+			type = check_type(*format, args);
 			if (type == -1)
-				return (va_end(args), -1);
+				return (-1);
 			count += type;
 		}
 		else
 		{
-			if(write (1, format, 1) == -1)
-				return (va_end(args), -1);
+			if (write(1, format, 1) == -1)
+				return (-1);
 			count++;
 		}
 		format++;
 	}
-	return (va_end(args), count);
+	return (count);
+}
+
+int	ft_printf(const char *format, ...)
+{
+	va_list	args;
+	int		count;
+
+	if (!format || write(1, "", 0) < 0)
+		return (-1);
+	va_start(args, format);
+	count = format_loop(format, &args);
+	va_end(args);
+	return (count);
 }

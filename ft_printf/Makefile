@@ -15,7 +15,7 @@ $(NAME): $(OBJECTS)
 	ar rcs $(NAME) $(OBJECTS)
 
 %.o: %.c
-	@ cc $(CFLAGS) -c $< -o $@
+	@ cc $(CFLAGS) -c $^ -o $@
 
 test: test.c $(NAME)
 	cc $(CFLAGS) $^ -o $@
