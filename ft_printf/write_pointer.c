@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 11:18:43 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/12 09:41:54 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/13 14:17:59 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	write_pointer(void *ptr, const char *hex)
 	if (check == -1)
 		return (-1);
 	count += check;
-	check = write_uint_base((unsigned long)ptr, hex, 16);
+	check = write_uint_base((uintptr_t)ptr, hex, 16);
 	if (check == -1)
 		return (-1);
 	count += check;
