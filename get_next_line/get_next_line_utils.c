@@ -6,11 +6,22 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 11:47:04 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/16 12:23:46 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/16 13:41:22 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+int	new_line(t_node *stash)
+{
+	while (stash)
+	{
+		if (ft_strchr(stash->content, '\n'))
+			return (1);
+		stash = stash->next;
+	}
+	return (0);
+}
 
 char	*ft_strdup(const char *s)
 {
@@ -21,7 +32,7 @@ char	*ft_strdup(const char *s)
 	if (!s)
 		return (NULL);
 	len = 0;
-	while(s[len])
+	while (s[len])
 		len++;
 	dst = malloc(sizeof(char) * (len + 1));
 	if (dst == NULL)
@@ -31,7 +42,7 @@ char	*ft_strdup(const char *s)
 	{
 		dst[i] = s[i];
 		i++;
-	}	
+	}
 	dst[len] = '\0';
 	return (dst);
 }

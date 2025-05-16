@@ -6,56 +6,46 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 13:10:58 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/16 12:20:26 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/16 13:44:38 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static int	new_line(t_node *stash)
-{
-	while (stash)
-	{
-		if (ft_strchr(stash->content, '\n'))
-			return (1);
-		stash = stash->next;
-	}
-	return (0);
-}
-
 static void	node_join(t_node **stash, char *buf)
 {
 	t_node	*new;
 	t_node	*ptr;
-	
+
 	new->content = ft_strdup(buf); //! copy of buf
 	new->next = NULL;
 	if (!*stash)
 		stash = new;
 	else
 	{
-		while(!ptr->next)
+		while (!ptr->next)
 			ptr = ptr->next;
-		ptr->next = new;		
+		ptr->next = new;	
 	}
 }
+
 static int	stash_len(t_node *stash)
 {
 	int	len;
 	int	j;
-	
+
 	len = 0;
-	while(stash)
+	while (stash)
 	{
 		j = 0;
-		while(stash->content[j])
+		while (stash->content[j])
 		{
 			len++;
 			if (stash->content[j] == '\n')
 				break ;
 			j++;
 		}
-		stash  = stash->next;
+		stash = stash->next;
 	}
 	return (len);
 }
@@ -65,15 +55,15 @@ static char	*copy_stash(t_node *stash, int len)
 	char	*line;
 	int		i;
 	int		j;
-	
+
 	line = malloc(len + 1);
-	if(!line)
+	if (!line)
 		return (NULL);
 	i = 0;
-	while(stash && i < len)
+	while (stash && i < len)
 	{
 		j = 0;
-		while(stash->content[j] && i < len)  //do i have to check it again?
+		while (stash->content[j] && i < len)  //do i have to check it again?
 		{
 			line[i++] = stash->content[j];
 			if (stash->content[j] == '\n')
@@ -86,7 +76,7 @@ static char	*copy_stash(t_node *stash, int len)
 	return (line);
 }
 
-static void	cut_stash(t_node *stash, int len)
+static void	cut_stash(t_node **stash, int len)
 {
 	
 }
@@ -96,24 +86,23 @@ char	*get_next_line(int fd)
 	static t_node	*stash;
 	ssize_t			bytes_read;
 	char			buf[BUFFER_SIZE + 1];
-	int 			len;
+	int				len;
 	char			*line;
-	
+
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	stash = NULL;
-	while(!new_line(stash))
+	while (!new_line(stash))
 	{
 		bytes_read = read(fd, buf, BUFFER_SIZE);
 		if (bytes_read <= 0)
-			break ;
+			break ; //??do i have to free??
 		buf[bytes_read] = '\0';
 		node_join(&stash, buf);
 	}
 	if (!stash)//remember to check it
 		return (NULL);
-	len = stash_len(stash);//calculate the total number of characters up to the first '\n'
-	line = copy_stash(stash, len);//Allocates a new string and copies len characters from the stash
-	cut_stash(stash, len); //remove ,free, deal with leftover
+	len = stash_len(stash);
+	line = copy_stash(stash, len);
+	cut_stash(&stash, len); //remove ,free, deal with leftover
 	return (line);
 }
