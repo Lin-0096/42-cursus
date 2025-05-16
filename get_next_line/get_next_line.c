@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 13:10:58 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/15 17:24:21 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/16 12:20:26 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,49 @@ static void	node_join(t_node **stash, char *buf)
 }
 static int	stash_len(t_node *stash)
 {
+	int	len;
+	int	j;
 	
+	len = 0;
+	while(stash)
+	{
+		j = 0;
+		while(stash->content[j])
+		{
+			len++;
+			if (stash->content[j] == '\n')
+				break ;
+			j++;
+		}
+		stash  = stash->next;
+	}
+	return (len);
 }
 
 static char	*copy_stash(t_node *stash, int len)
 {
+	char	*line;
+	int		i;
+	int		j;
 	
+	line = malloc(len + 1);
+	if(!line)
+		return (NULL);
+	i = 0;
+	while(stash && i < len)
+	{
+		j = 0;
+		while(stash->content[j] && i < len)  //do i have to check it again?
+		{
+			line[i++] = stash->content[j];
+			if (stash->content[j] == '\n')
+				break ;
+			j++;
+		}
+		stash = stash->next;
+	}
+	line[i] = '\0';
+	return (line);
 }
 
 static void	cut_stash(t_node *stash, int len)
@@ -73,7 +110,7 @@ char	*get_next_line(int fd)
 		buf[bytes_read] = '\0';
 		node_join(&stash, buf);
 	}
-	if (!stash)
+	if (!stash)//remember to check it
 		return (NULL);
 	len = stash_len(stash);//calculate the total number of characters up to the first '\n'
 	line = copy_stash(stash, len);//Allocates a new string and copies len characters from the stash

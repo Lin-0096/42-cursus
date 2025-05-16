@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 11:47:04 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/15 16:44:41 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/16 12:23:46 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_strdup(const char *s)
 	i = 0;
 	while (i < len)
 	{
-		((char *)dst)[i] = ((const char *)s)[i];
+		dst[i] = s[i];
 		i++;
 	}	
 	dst[len] = '\0';
