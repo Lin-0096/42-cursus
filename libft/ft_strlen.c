@@ -6,11 +6,11 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 15:59:25 by linliu            #+#    #+#             */
-/*   Updated: 2025/04/17 15:59:47 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/16 14:59:52 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {

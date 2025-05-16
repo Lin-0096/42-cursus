@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 11:47:04 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/16 13:41:22 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/16 15:31:34 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,28 @@ char	*ft_strchr(const char *s, int c)
 	if (c == '\0')
 		return ((char *)s);
 	return (NULL);
+}
+
+int	ft_strlen(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+void	free_stash(t_node **stash)
+{
+	t_node *ptr;
+
+	ptr = *stash;
+	while(*stash)
+	{
+		ptr = (*stash)->next;
+		free ((*stash)->content);
+		free (*stash);
+		*stash = ptr;
+	}
 }
