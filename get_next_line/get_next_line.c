@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 13:10:58 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/16 15:19:00 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/16 16:46:53 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static char	*copy_stash(t_node *stash, int len)
 	while (stash && i < len)
 	{
 		j = 0;
-		while (stash->content[j] && i < len)  //do i have to check it again?
+		while (stash->content[j] && i < len)  //check i<len
 		{
 			line[i++] = stash->content[j];
 			if (stash->content[j] == '\n')
@@ -82,7 +82,7 @@ static char	*copy_stash(t_node *stash, int len)
 
 static void	cut_stash(t_node **stash, int len)
 {
-	t_node	*last;
+	t_node	*last; //refactor!
 	int		content_len;
 	char	*left;
 	int		i;
@@ -131,7 +131,7 @@ char	*get_next_line(int fd)
 		{
 			if (bytes_read < 0)
 				free_stash(&stash);
-			break ; //??do i have to free??
+			break ; 
 		}
 		buf[bytes_read] = '\0';
 		node_join(&stash, buf);

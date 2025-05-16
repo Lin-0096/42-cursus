@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 13:11:26 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/16 13:42:33 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/16 16:10:54 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,10 @@ typedef struct s_node
 }	t_node;
 
 char	*get_next_line(int fd);
-char	*ft_strdup(char *str);
-char	*ft_strchr(char *content, int c);
+char	*ft_strdup(const char *s);
+char	*ft_strchr(const char *s, int c);
 int		new_line(t_node *stash);
+int		ft_strlen(char *s);
+void	free_stash(t_node **stash);
 
 #endif

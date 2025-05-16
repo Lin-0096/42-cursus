@@ -1,0 +1,8 @@
+First line is normal.
+Second line is veeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeery long!
+Line with only newline:
+
+Next line with tab	and spaces     here
+Line with symbols !@#$%^&*()_+[]{}|;':",.<>/?~` and newline
+
+Line without newline at end
