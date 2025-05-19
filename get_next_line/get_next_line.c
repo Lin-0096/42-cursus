@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 13:10:58 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/16 16:46:53 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/19 14:09:09 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,33 +85,35 @@ static void	cut_stash(t_node **stash, int len)
 	t_node	*last; //refactor!
 	int		content_len;
 	char	*left;
-	int		i;
+	int		j;
+	int		skip;
 	t_node	*new_node;
 
-	last = *stash;
-	while(last->next)
-		last = last->next;
-	content_len = ft_strlen(last->content);
-	left = malloc(sizeof(char) * (content_len + 1));
-	if (!left)
-		return ;
-	i = 0;
-	while (i < content_len)
-	{
-		left[i] = last->content[i];
-		i++;
-	}
-	left[i] = '\0';
-	free_stash(stash);
-	if(left)
-	{
-		new_node = malloc(sizeof(t_node));
-		if (!new_node)
-			return ;
-		new_node->content = left;
-		new_node->next = NULL;
-		*stash = new_node;
-	}
+    skip = len;
+	while (last && skip > 0)
+    {
+        content_len = ft_strlen(last->content);
+        if (skip < content_len)
+        {
+            left = malloc(sizeof(char) * (content_len - skip + 1));
+            if (!left)
+                return ;
+            while (skip < content_len)
+                left[j++] = last->content[skip++];
+            left[j] = '\0';
+            break;
+        }
+        skip -= content_len;
+        last = last->next;
+    }
+    free_stash(stash);
+    if (left)
+    {
+        t_node *new_node = malloc(sizeof(t_node));
+        new_node->content = left;
+        new_node->next = NULL;
+        *stash = new_node;
+    }
 }
 
 char	*get_next_line(int fd)
