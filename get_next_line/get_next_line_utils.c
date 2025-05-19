@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: lin <lin@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 11:47:04 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/19 15:48:22 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/20 00:24:52 by lin              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,12 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-int	ft_strlen(char *s)
+size_t	ft_strlen(char *s)
 {
-	int	i;
+	size_t	i;
 
+	if (!s)
+		return (0);
 	i = 0;
 	while (s[i])
 		i++;

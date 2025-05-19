@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: lin <lin@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 13:11:26 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/16 16:10:54 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/20 00:25:07 by lin              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*get_next_line(int fd);
 char	*ft_strdup(const char *s);
 char	*ft_strchr(const char *s, int c);
 int		new_line(t_node *stash);
-int		ft_strlen(char *s);
+size_t		ft_strlen(char *s);
 void	free_stash(t_node **stash);
 
 #endif

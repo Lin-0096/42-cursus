@@ -3,3 +3,4 @@
 *.o
 a.out
 *.a
+/get_next_line/gnlTester
