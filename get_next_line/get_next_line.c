@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 13:10:58 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/19 14:09:09 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/19 15:55:15 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,17 @@ static void	node_join(t_node **stash, char *buf)
 	t_node	*new;
 	t_node	*ptr;
 
+	if (!buf) //check!!
+		return ;
 	new = malloc(sizeof(t_node));
 	if (!new)
 		return ;
-	new->content = ft_strdup(buf); //! copy of buf
+	new->content = ft_strdup(buf); //! copy of buf,check!!
+	if (!new->content)
+    {
+        free(new);
+        return;
+    }
 	new->next = NULL;
 	if (!*stash)
 		*stash = new;
@@ -35,19 +42,20 @@ static void	node_join(t_node **stash, char *buf)
 
 static int	stash_len(t_node *stash)
 {
-	int	len;
-	int	j;
+	char	*content;
+	int		len;
 
 	len = 0;
 	while (stash)
 	{
-		j = 0;
-		while (stash->content[j])
+		content = stash->content;
+		if (!content) //check!!
+			return (len);;
+		while (content)
 		{
 			len++;
-			if (stash->content[j] == '\n')
-				break ;
-			j++;
+			if (*content++ == '\n')
+				return (len);
 		}
 		stash = stash->next;
 	}
@@ -70,9 +78,11 @@ static char	*copy_stash(t_node *stash, int len)
 		while (stash->content[j] && i < len)  //check i<len
 		{
 			line[i++] = stash->content[j];
-			if (stash->content[j] == '\n')
-				break ;
-			j++;
+			if (stash->content[j++] == '\n')
+			{
+				line[i] = '\0';
+				return (line);
+			}
 		}
 		stash = stash->next;
 	}
@@ -80,40 +90,9 @@ static char	*copy_stash(t_node *stash, int len)
 	return (line);
 }
 
-static void	cut_stash(t_node **stash, int len)
+void cut_stash(t_node **stash, int len)
 {
-	t_node	*last; //refactor!
-	int		content_len;
-	char	*left;
-	int		j;
-	int		skip;
-	t_node	*new_node;
 
-    skip = len;
-	while (last && skip > 0)
-    {
-        content_len = ft_strlen(last->content);
-        if (skip < content_len)
-        {
-            left = malloc(sizeof(char) * (content_len - skip + 1));
-            if (!left)
-                return ;
-            while (skip < content_len)
-                left[j++] = last->content[skip++];
-            left[j] = '\0';
-            break;
-        }
-        skip -= content_len;
-        last = last->next;
-    }
-    free_stash(stash);
-    if (left)
-    {
-        t_node *new_node = malloc(sizeof(t_node));
-        new_node->content = left;
-        new_node->next = NULL;
-        *stash = new_node;
-    }
 }
 
 char	*get_next_line(int fd)

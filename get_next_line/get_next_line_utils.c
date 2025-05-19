@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 11:47:04 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/16 15:31:34 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/19 15:48:22 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	new_line(t_node *stash)
 {
+	if (!stash)
+		return (0);
 	while (stash)
 	{
 		if (ft_strchr(stash->content, '\n'))
@@ -74,6 +76,8 @@ void	free_stash(t_node **stash)
 {
 	t_node *ptr;
 
+	if (!*stash || !stash)
+		return ;
 	ptr = *stash;
 	while(*stash)
 	{
@@ -82,4 +86,5 @@ void	free_stash(t_node **stash)
 		free (*stash);
 		*stash = ptr;
 	}
+	*stash = NULL;
 }
