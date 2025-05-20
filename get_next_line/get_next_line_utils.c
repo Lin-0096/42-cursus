@@ -6,7 +6,7 @@
 /*   By: lin <lin@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 11:47:04 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/20 00:24:52 by lin              ###   ########.fr       */
+/*   Updated: 2025/05/20 12:27:22 by lin              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void	free_stash(t_node **stash)
 {
 	t_node *ptr;
 
+	
 	if (!*stash || !stash)
 		return ;
 	ptr = *stash;

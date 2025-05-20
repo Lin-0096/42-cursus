@@ -6,7 +6,7 @@
 /*   By: lin <lin@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 13:10:58 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/20 00:41:34 by lin              ###   ########.fr       */
+/*   Updated: 2025/05/20 12:27:12 by lin              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,7 @@ char	*get_next_line(int fd)
 	size_t				len;
 	char			*line;
 
+	
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	while (!new_line(stash))

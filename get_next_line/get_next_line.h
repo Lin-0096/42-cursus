@@ -6,7 +6,7 @@
 /*   By: lin <lin@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 13:11:26 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/20 00:25:07 by lin              ###   ########.fr       */
+/*   Updated: 2025/05/20 12:27:16 by lin              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_node
 	char			*content;
 	struct s_node	*next;
 }	t_node;
+
 
 char	*get_next_line(int fd);
 char	*ft_strdup(const char *s);
