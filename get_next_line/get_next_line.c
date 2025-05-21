@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 13:49:08 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/21 18:00:57 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/21 18:16:59 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static	int	new_line(char *stash)
 	}
 	return (0);
 }
+
 static char	*copy_line(char *stash)
 {
 	char	*line;
@@ -63,15 +64,11 @@ static char	*clean_stash(char *stash)
 	return (left);	
 }
 
-char	*get_next_line(int fd)
+static	char	*join_stash(char *stash, int fd)
 {
-	static	char	*stash;
-	char			*line;
-	ssize_t				bytes;
-	char			*buf;
-
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
+	char		*buf;
+	ssize_t		bytes;
+	
 	buf = malloc(BUFFER_SIZE + 1);
 	if (!buf)
 		return (NULL);
@@ -81,11 +78,22 @@ char	*get_next_line(int fd)
 		if (bytes == 0)
 			break ;
 		if (bytes < 0)
-			return (free (buf), free (stash), stash = NULL, NULL);
+			return (free(buf), free(stash), stash = NULL, NULL);
 		buf[bytes] = '\0';
 		stash = ft_strjoin(stash, buf);
 	}
 	free (buf);
+	return (stash);
+}
+
+char	*get_next_line(int fd)
+{
+	static	char	*stash;
+	char			*line;
+
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	stash = join_stash(stash, fd);
 	if (!stash || !*stash)
 		return (free(stash), stash = NULL, NULL);
 	line = copy_line(stash);
