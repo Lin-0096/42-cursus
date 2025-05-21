@@ -3,14 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: lin <lin@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:07:37 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/21 18:17:46 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/21 23:42:26 by lin              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+char	*ft_strchr(char *s, int c)
+{
+	if (!s)
+		return (NULL);
+	while (*s)
+	{
+		if (*s == (char)c)
+			return (s);
+		s++;
+	}
+	if (c == '\0')
+		return (s);
+	return (NULL);
+}
 
 size_t	ft_strlen(char *str)
 {
@@ -41,7 +56,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	}
 	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!str)
-		return (free (s1), NULL); //i have to free s1
+		return (free (s1), NULL); // have to free s1
 	i = -1;
 	while (s1[++i])
 		str[i] = s1[i];
@@ -49,7 +64,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	while (s2[j])
 		str[i++] = s2[j++];
 	str[i] = '\0';
-	free (s1); //!!i have to free s1 after first use
+	free (s1); //!!have to free s1 after first use
 	return (str);
 }
 
@@ -70,29 +85,5 @@ char	*ft_strndup(const char *s, size_t n)
 		i++;
 	}
 	dst[n] = '\0';
-	return (dst);
-}
-
-char	*ft_strdup(const char *s)
-{
-	char	*dst;
-	size_t	len;
-	size_t	i;
-
-	if (!s)
-		return (NULL);
-	len = 0;
-	while (s[len])
-		len++;
-	dst = malloc(sizeof(char) * (len + 1));
-	if (dst == NULL)
-		return (NULL);
-	i = 0;
-	while (i < len)
-	{
-		dst[i] = s[i];
-		i++;
-	}
-	dst[len] = '\0';
 	return (dst);
 }

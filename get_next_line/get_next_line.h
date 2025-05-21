@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: lin <lin@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 13:11:26 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/21 17:36:58 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/21 23:42:30 by lin              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@
 # include <unistd.h>
 
 char	*get_next_line(int fd);
+
 char	*ft_strjoin(char *s1, char *s2);
-char	*ft_strdup(const char *s);
 char	*ft_strndup(const char *s, size_t n);
 size_t	ft_strlen(char *str);
+char    *ft_strchr(char *stash, int c);
 
 #endif
