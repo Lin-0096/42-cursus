@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 13:49:08 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/22 13:54:30 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/22 16:17:47 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ static	char	*join_stash(char *stash, int fd)
 			return (free(buf), free(stash), stash = NULL, NULL);
 		buf[bytes] = '\0';
 		stash = ft_strjoin(stash, buf);
+		if (!stash)
+			return (free(buf), NULL);
 	}
 	free (buf);
 	return (stash);
