@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/20 13:49:08 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/22 13:54:30 by linliu           ###   ########.fr       */
+/*   Created: 2025/05/22 13:54:54 by linliu            #+#    #+#             */
+/*   Updated: 2025/05/22 14:47:27 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static char	*copy_line(char *stash)
 {
@@ -74,17 +74,17 @@ static	char	*join_stash(char *stash, int fd)
 
 char	*get_next_line(int fd)
 {
-	static char		*stash;
+	static char		*stash[MAX_FD];
 	char			*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd >= MAX_FD)
 		return (NULL);
-	stash = join_stash(stash, fd);
-	if (!stash)
-		return (free(stash), stash = NULL, NULL);
-	line = copy_line(stash);
+	stash[fd] = join_stash(stash[fd], fd);
+	if (!stash[fd])
+		return (free(stash[fd]), stash[fd] = NULL, NULL);
+	line = copy_line(stash[fd]);
 	if (!line)
-		return (free(stash), stash = NULL, NULL);
-	stash = clean_stash(stash);
+		return (free(stash[fd]), stash[fd] = NULL, NULL);
+	stash[fd] = clean_stash(stash[fd]);
 	return (line);
 }
