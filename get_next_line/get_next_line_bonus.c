@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 13:54:54 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/22 16:20:54 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/23 10:23:33 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	stash[fd] = join_stash(stash[fd], fd);
 	if (!stash[fd])
-		return (free(stash[fd]), stash[fd] = NULL, NULL);
+		return (NULL);
 	line = copy_line(stash[fd]);
 	if (!line)
 		return (free(stash[fd]), stash[fd] = NULL, NULL);
