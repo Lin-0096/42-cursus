@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 13:49:08 by linliu            #+#    #+#             */
-/*   Updated: 2025/05/23 10:23:21 by linliu           ###   ########.fr       */
+/*   Updated: 2025/05/23 11:14:11 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static	char	*join_stash(char *stash, int fd)
 
 	buf = malloc(BUFFER_SIZE + 1);
 	if (!buf)
-		return (NULL);
+		return (free(stash), NULL);
 	while (!ft_strchr(stash, '\n'))
 	{
 		bytes = read(fd, buf, BUFFER_SIZE);
